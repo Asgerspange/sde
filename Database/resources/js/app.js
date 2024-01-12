@@ -9,6 +9,7 @@ import ColumnGroup from 'primevue/columngroup';
 import Row from 'primevue/row';
 import Dropdown from 'primevue/dropdown';
 import Card from 'primevue/card';
+import ToggleButton from 'primevue/togglebutton';
 
 import 'primevue/resources/themes/saga-blue/theme.css';
 
@@ -16,6 +17,7 @@ const app = createApp(App)
     .component('Card', Card)
     .component('DataTable', DataTable)
     .component('Column', Column)
+    .component('ToggleButton', ToggleButton)
     .component('Dropdown', Dropdown)
     .component('ColumnGroup', ColumnGroup)
     .component('Row', Row)
