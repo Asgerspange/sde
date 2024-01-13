@@ -21,6 +21,11 @@ Route::group(['prefix' => 'teams'], function () {
     Route::post('/getTeams', [DatabaseController::class, 'getTeams']);
 });
 Route::get('/getMembers', [DatabaseController::class, 'getMembers']);
+
+Route::post('/updateMember', [DatabaseController::class, 'updateMember']);
+Route::post('/deleteMember', [DatabaseController::class, 'deleteMember']);
+Route::post('/addMember', [DatabaseController::class, 'addMember']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

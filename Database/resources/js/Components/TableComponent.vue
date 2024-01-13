@@ -1,50 +1,117 @@
 <template>
-    <div class="d-flex justify-content-center mt-4">
-        <div class="col-10 card">
-            <DataTable :value="data" paginator :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]">
-                <Column field="id" header="ID"></Column>
-                <Column field="firstName" header="First Name"></Column>
-                <Column field="lastName" header="Last Name"></Column>
-                <Column field="mail" header="Email"></Column>
-                <Column field="phoneNumber" header="Phone Number"></Column>
-                <Column field="street" header="Street"></Column>
-                <Column field="birthYear" header="Birth Year"></Column>
-                <Column field="role" header="Role"></Column>
-            </DataTable>
-        </div>
+    <div class="container">
+        <Button label="Add entry" class="p-button-success" @click="toggleDialog('add', {})"/>
+        <table class="styled-table">
+            <thead class="guide-row">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Role</th>
+                    <th>Birth Year</th>
+                    <th>Team</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in data" :key="entry.id" class="fade-in">
+                    <td>{{ entry.id }}</td>
+                    <td>{{ entry.firstName }}</td>
+                    <td>{{ entry.lastName }}</td>
+                    <td>{{ entry.role }}</td>
+                    <td>{{ entry.birthYear }}</td>
+                    <td>{{ entry.teamName}}</td>
+                    <td>
+                        <Button label="Edit" class="p-button-secondary" @click="toggleDialog('edit', entry)"/>
+                        <Button label="Delete" class="p-button-danger" @click="toggleDialog('delete', entry)"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+
+    <Edit :entry="tempEntry" :visible="showEditDialog" @closed="showEditDialog = false" />
+    <Delete :entry="tempEntry" :visible="showDeleteDialog" @closed="showDeleteDialog = false" />
+    <Add :visible="showCreateDialog" @closed="showCreateDialog = false" />
 </template>
 
 <script>
     import axios from 'axios';
-  
+    import Edit from './Dialogs/Edit';
+    import Delete from './Dialogs/Delete';
+    import Add from './Dialogs/Add';
+
     export default {
         data() {
-        return {
-            columns: null,
-            data: null
-        };
-    },
-  
-    created() {
-        this.columns = [
-            { field: 'id', header: 'ID' },
-            { field: 'firstName', header: 'First Name' },
-            { field: 'lastName', header: 'Last Name' },
-            { field: 'mail', header: 'Email' },
-            { field: 'phoneNumber', header: 'Phone Number' },
-            { field: 'street', header: 'Street' },
-            { field: 'birthYear', header: 'Birth Year' },
-            { field: 'role', header: 'Role' },
-        ];
-    },
-  
-    mounted() {
-        axios.get('api/getMembers')
-            .then(response => {
+            return {
+                data: null,
+                tempEntry: null,
+                showEditDialog: false,
+                showCreateDialog: false,
+                showDeleteDialog: false,
+            };
+        },
+
+        components: {
+            Delete,
+            Edit,
+            Add
+        },
+
+        mounted() {
+            axios.get('api/getMembers').then((response) => {
                 this.data = response.data.result;
-            })
+            });
+        },
+
+        methods: {
+            toggleDialog (action, entry) {
+                if (action === 'edit') {
+                    console.log(entry);
+                    this.tempEntry = Object.assign({}, entry);
+                    this.showEditDialog = true;
+                }
+
+                if (action === 'add') {
+                    this.tempEntry = Object.assign({}, entry);
+                    this.showCreateDialog = true;
+                }
+
+                if (action === 'delete') {
+                    this.tempEntry = Object.assign({}, entry);
+                    this.showDeleteDialog = true;
+                }
+            }
         }
     };
 </script>
-  
+
+<style lang="scss" scoped>
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .styled-table th {
+        background-color: #f2f2f2;
+    }
+
+    .styled-table tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .fade-in-enter-active, .fade-in-leave-active {
+        transition: opacity 0.5s;
+    }
+    .fade-in-enter, .fade-in-leave-to {
+        opacity: 0;
+    }
+</style>
