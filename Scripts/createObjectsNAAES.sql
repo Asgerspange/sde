@@ -16,10 +16,7 @@ CREATE TABLE members.info (
     phoneNumber VARCHAR(15) NOT NULL,
     street VARCHAR(255) NOT NULL,
     birthYear INT NOT NULL,
-    role VARCHAR(50),
-	created_at DATETIME DEFAULT GETDATE(),
-    updated_at DATETIME DEFAULT GETDATE(),
-    deleted_at DATETIME NULL
+    role VARCHAR(50)
 );
 
 CREATE TABLE members.membership_history (
