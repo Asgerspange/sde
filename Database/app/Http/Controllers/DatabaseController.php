@@ -13,7 +13,7 @@ class DatabaseController extends Controller
             DB::connection()->getPdo();
             $connected = true;
         } catch (\Exception $e) {
-            $connected = false;
+            $connected = $e;
         }
 
         return response()->json(['connected' => $connected]);
