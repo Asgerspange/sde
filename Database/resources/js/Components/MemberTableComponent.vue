@@ -37,9 +37,9 @@
 
 <script>
     import axios from 'axios';
-    import Edit from './Dialogs/Edit';
+    import Edit from './Dialogs/Member/Edit';
     import Delete from './Dialogs/Delete';
-    import Add from './Dialogs/Add';
+    import Add from './Dialogs/Member/Add';
 
     export default {
         data() {
@@ -67,7 +67,6 @@
         methods: {
             toggleDialog (action, entry) {
                 if (action === 'edit') {
-                    console.log(entry);
                     this.tempEntry = Object.assign({}, entry);
                     this.showEditDialog = true;
                 }

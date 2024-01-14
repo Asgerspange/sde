@@ -6,7 +6,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/check-database-connection', 'DatabaseController@checkConnection');
 
 Route::group(['prefix' => 'teams'], function () {
-    Route::post('/getTeams', 'DatabaseController@getTeams');
+    Route::get('/getTeamMembers/{teamId}', 'TeamController@getTeamMembers');
+    Route::post('/addTeamMember/{teamId}/{memberId}', 'TeamController@addTeamMember');
+    Route::post('/removeTeamMember/{teamId}/{memberId}', 'TeamController@removeTeamMember');
+    Route::post('/updateTeam/{teamId}', 'TeamController@updateTeam');
+    Route::post('/deleteTeam/{teamId}', 'TeamController@deleteTeam');
+    Route::post('/addTeam', 'TeamController@addTeam');
+    Route::get('/getTeams', 'TeamController@getTeams');
+    Route::get('/getTeam/{teamId}', 'TeamController@getTeam');
 });
 
 Route::group(['prefix' => 'members'], function () {
