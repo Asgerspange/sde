@@ -57,7 +57,7 @@ import axios from 'axios';
 
             addEntry() {
                 console.log(this.entry);
-                return axios.post('api/addMember', this.entry)
+                return axios.post('api/members/addMember', this.entry)
                     .then(() => {
                         this.close();
                     });

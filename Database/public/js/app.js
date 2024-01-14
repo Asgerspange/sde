@@ -18415,7 +18415,7 @@ __webpack_require__.r(__webpack_exports__);
     addEntry: function addEntry() {
       var _this = this;
       console.log(this.entry);
-      return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/addMember', this.entry).then(function () {
+      return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/members/addMember', this.entry).then(function () {
         _this.close();
       });
     }
@@ -18448,7 +18448,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     deleteEntry: function deleteEntry() {
       var _this = this;
-      return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/deleteMember', this.entry).then(function () {
+      return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/members/deleteMember', this.entry).then(function () {
         _this.close();
       });
     }
@@ -18481,7 +18481,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     update: function update() {
       var _this = this;
-      return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/updateMember', this.entry).then(function () {
+      return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/members/updateMember', this.entry).then(function () {
         _this.close();
       });
     }
@@ -18526,7 +18526,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
-    axios__WEBPACK_IMPORTED_MODULE_3__["default"].get('api/getMembers').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_3__["default"].get('api/members/getMembers').then(function (response) {
       _this.data = response.data.result;
     });
   },

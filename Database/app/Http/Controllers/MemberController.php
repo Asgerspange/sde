@@ -2,31 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class DatabaseController extends Controller
+class MemberController extends Controller
 {
-    public function checkConnection()
-    {
-        try {
-            DB::connection()->getPdo();
-            $connected = true;
-        } catch (\Exception $e) {
-            $connected = $e;
-        }
-
-        return response()->json(['connected' => $connected]);
-    }
-
-    public function getTeams()
-    {
-        $teams = DB::table('teams.info')->get();
-
-        return response()->json(['result' => $teams]);
-    }
-
-    public function getMembers()
+        public function getMembers()
     {
         $members = Member::with('team')->get();
     

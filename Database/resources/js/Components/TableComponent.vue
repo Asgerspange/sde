@@ -59,7 +59,7 @@
         },
 
         mounted() {
-            axios.get('api/getMembers').then((response) => {
+            axios.get('api/members/getMembers').then((response) => {
                 this.data = response.data.result;
             });
         },

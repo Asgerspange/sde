@@ -28,7 +28,7 @@ import axios from 'axios';
             },
 
             deleteEntry() {
-                return axios.post('api/deleteMember', this.entry)
+                return axios.post('api/members/deleteMember', this.entry)
                     .then(() => {
                         this.close();
                     });

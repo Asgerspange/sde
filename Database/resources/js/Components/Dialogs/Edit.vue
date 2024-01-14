@@ -41,7 +41,7 @@ import axios from 'axios';
             },
 
             update() {
-                return axios.post('api/updateMember', this.entry)
+                return axios.post('api/members/updateMember', this.entry)
                     .then(() => {
                         this.close();
                     });
