@@ -16,7 +16,10 @@ CREATE TABLE members.info (
     phoneNumber VARCHAR(15) NOT NULL,
     street VARCHAR(255) NOT NULL,
     birthYear INT NOT NULL,
-    role VARCHAR(50)
+    role VARCHAR(50),
+	created_at DATETIME DEFAULT GETDATE(),
+    updated_at DATETIME,
+    deleted_at DATETIME
 );
 
 CREATE TABLE members.membership_history (
@@ -39,6 +42,9 @@ CREATE TABLE teams.info (
     captainID INT,
     sponsor VARCHAR(255),
     gameID INT,
+	created_at DATETIME DEFAULT GETDATE(),
+    updated_at DATETIME,
+    deleted_at DATETIME,
     FOREIGN KEY (captainID) REFERENCES members.info (id),
     FOREIGN KEY (gameID) REFERENCES teams.games (gameID)
 );
