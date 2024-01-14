@@ -10,7 +10,7 @@ class Member extends Model
 
     public function team()
     {
-        return $this->belongsToMany(Team::class, 'teams.players', 'playerID', 'teamID');
+        return $this->belongsToMany(TeamsInfo::class, 'teams.players', 'playerID', 'teamID');
     }
 
     public function membershipHistory()

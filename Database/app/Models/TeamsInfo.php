@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class TeamsInfo extends Model
 {
     protected $table = 'teams.info';
     protected $primaryKey = 'teamID';

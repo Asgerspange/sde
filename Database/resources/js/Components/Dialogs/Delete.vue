@@ -2,7 +2,7 @@
     <Dialog ref="dialog" :visible="visible" modal header="Delete entry" :aria-expanded="visible ? true : false">
         <template v-if="entry">
             <div class="row">
-                <p>Vil du slette {{ entry.firstName }}</p>
+                <p>Er du sikker på at du vil slette?</p>
             </div>
         </template>
 
