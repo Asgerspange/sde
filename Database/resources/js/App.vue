@@ -1,5 +1,7 @@
 <template>
     <main>
+        <router-link to="/">Members</router-link>
+        <router-link to="/teams">Teams</router-link>
         <DarkmodeComponent />
         <router-view />
     </main>
