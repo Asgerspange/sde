@@ -1,4 +1,11 @@
 /* fallback */
+@import './colors.scss';
+ol, ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 @font-face {
     font-family: 'Material Symbols Outlined';
     font-style: normal;
@@ -24,7 +31,7 @@
 
 html[data-theme='dark'] {
     body{
-        background-color: #111111;
+        background-color: $black-primary;
         color: white;
     }
 
@@ -38,5 +45,13 @@ html[data-theme='dark'] {
 
     .styled-table tbody tr:hover {
         background-color: #333333 !important;
+    }
+
+    .p-menuitem-link {
+        background-color: $black-primary;
+    }
+
+    .tablinka {
+        color: #fef8ea;
     }
 }
