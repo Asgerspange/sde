@@ -20,6 +20,7 @@
                     <td>{{ entry.sponsor }}</td>
                     <td>{{ entry.gameID}}</td>
                     <td>
+                        <Button label="Show Team" class="p-button-info" @click="toggleDialog('show', entry)" />
                         <Button label="Edit" class="p-button-secondary" @click="toggleDialog('edit', entry)"/>
                         <Button label="Delete" class="p-button-danger" @click="toggleDialog('delete', entry)"/>
                     </td>
@@ -31,6 +32,7 @@
     <Edit :entry="tempEntry" :visible="showEditDialog" @closed="showEditDialog = false" />
     <Delete :entry="tempEntry" :visible="showDeleteDialog" @closed="showDeleteDialog = false" />
     <Add :visible="showCreateDialog" @closed="showCreateDialog = false" />
+    <Team :entry="tempEntry" :visible="showTeamDialog" @closed="showTeamDialog = false" />
 </template>
 
 <script>
@@ -38,13 +40,16 @@
     import Edit from './Dialogs/Team/Edit';
     import Delete from './Dialogs/Delete';
     import Add from './Dialogs/Team/Add';
+    import Team from './Dialogs/Team/Team'
 
     export default {
         data() {
             return {
                 data: null,
                 tempEntry: null,
+                Players: null,
                 showEditDialog: false,
+                showTeamDialog: false,
                 showCreateDialog: false,
                 showDeleteDialog: false,
             };
@@ -53,7 +58,8 @@
         components: {
             Delete,
             Edit,
-            Add
+            Add,
+            Team
         },
 
         mounted() {
@@ -77,6 +83,12 @@
                 if (action === 'delete') {
                     this.tempEntry = Object.assign({}, entry);
                     this.showDeleteDialog = true;
+                }
+
+                if (action === 'show') {
+                    this.tempEntry = Object.assign({}, entry);
+                    this.showTeamDialog = true;
+
                 }
             }
         }
