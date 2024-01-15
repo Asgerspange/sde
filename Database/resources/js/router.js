@@ -2,6 +2,8 @@ import { createWebHistory, createRouter } from 'vue-router';
 
 import Teams from './Views/Teams.vue';
 import Index from './Views/Index.vue';
+import Tournaments from './Views/Tournaments.vue';
+
 const routes = [
     {
         path: '/',
@@ -12,6 +14,11 @@ const routes = [
         path: '/teams',
         name: 'teams',
         component: Teams,
+    },
+    {
+        path: '/tournaments',
+        name: 'tournaments',
+        component: Tournaments,
     }
 ];
 
