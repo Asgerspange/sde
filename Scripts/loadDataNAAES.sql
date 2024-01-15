@@ -113,3 +113,20 @@ VALUES
 	(6, 27),
 	(6, 28),
 	(6, 30);
+
+
+INSERT INTO tournaments.tournament_info (tournamentName, startDate, endDate, location, winnerID)
+VALUES
+    ('CS:GO Championship', '2023-07-01', '2023-07-10', 'City Arena', 1),  -- Assuming Team 1 is the winner
+    ('Fortnite League', '2023-08-01', '2023-08-15', 'Arena Center', NULL), -- No winner yet
+    ('Summer Showdown', '2023-06-15', '2023-06-30', 'Stadium Hall', NULL),
+    ('Elite Gaming Tournament', '2023-09-01', '2023-09-15', 'Convention Center', NULL);
+
+INSERT INTO tournaments.tournament_teams (tournamentID, teamID)
+VALUES
+    (1, 1),
+    (1, 2),  
+    (1, 3),
+    (1, 4),
+    (2, 5),
+    (2, 6);
