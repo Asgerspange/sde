@@ -23,6 +23,10 @@ Route::group(['prefix' => 'members'], function () {
     Route::post('/addMember', 'MemberController@addMember');
 });
 
+Route::group(['prefix' => 'tournaments'], function () {
+    Route::get('/getTournaments', 'TournamentController@getTournaments');
+});
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

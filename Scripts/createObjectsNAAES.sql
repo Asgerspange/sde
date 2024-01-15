@@ -55,3 +55,27 @@ CREATE TABLE teams.players (
     FOREIGN KEY (teamID) REFERENCES teams.info (teamID) ON DELETE CASCADE,
     FOREIGN KEY (playerID) REFERENCES members.info (id) ON DELETE CASCADE
 );
+
+CREATE TABLE tournaments.tournament_info (
+    tournamentID INT IDENTITY (1, 1) PRIMARY KEY,
+    tournamentName VARCHAR(255) NOT NULL,
+    startDate DATE NOT NULL,
+    endDate DATE,
+    location VARCHAR(255),
+    winnerID INT,
+	created_at DATETIME DEFAULT GETDATE(),
+    updated_at DATETIME,
+    deleted_at DATETIME,
+    FOREIGN KEY (winnerID) REFERENCES teams.info (teamID)
+);
+
+CREATE TABLE tournaments.tournament_teams (
+    tournamentTeamID INT IDENTITY (1, 1) PRIMARY KEY,
+    tournamentID INT,
+    teamID INT,
+	created_at DATETIME DEFAULT GETDATE(),
+    updated_at DATETIME,
+    deleted_at DATETIME,
+    FOREIGN KEY (tournamentID) REFERENCES tournaments.tournament_info(tournamentID),
+    FOREIGN KEY (teamID) REFERENCES teams.info(teamID)
+);

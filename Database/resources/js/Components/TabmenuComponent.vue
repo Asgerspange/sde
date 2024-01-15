@@ -17,7 +17,8 @@
             return {
                 items: [
                     { label: 'Members', image: 'groups', command: () => this.$router.push('/') },
-                    { label: 'Teams', image: 'team_dashboard', command: () => this.$router.push('/teams') }
+                    { label: 'Teams', image: 'team_dashboard', command: () => this.$router.push('/teams') },
+                    { label: 'Tournaments', image: 'trophy', command: () => this.$router.push('/tournaments') }
                 ]
             };
         }
