@@ -1,7 +1,6 @@
 <template>
     <main>
-        <router-link to="/">Members</router-link>
-        <router-link to="/teams">Teams</router-link>
+        <TabmenuComponent />
         <DarkmodeComponent />
         <router-view />
     </main>
@@ -10,11 +9,13 @@
 <script>
     import DatabaseConnectionStatus from './Components/DatabaseConnectionComponent.vue';
     import DarkmodeComponent from './Components/DarkmodeComponent.vue';
+    import TabmenuComponent from './Components/TabmenuComponent.vue';
   
     export default {
         components: {
             DatabaseConnectionStatus,
             DarkmodeComponent,
+            TabmenuComponent
         },
     };
 </script>
