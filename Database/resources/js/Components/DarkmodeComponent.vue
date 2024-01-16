@@ -1,25 +1,39 @@
 <template>
     <div class="button-container">
-        <ToggleButton class="material-symbols-outlined" v-model="value" onLabel="&#xe518" offLabel="&#xe51c" @change="changetheme"/>
+        <ToggleButton class="material-symbols-outlined" v-model="themeToggle" onLabel="&#xe518" offLabel="&#xe51c" @change="changeTheme"/>
     </div>
 </template>
 
 <script>
+import { useStore } from '../store';
+
 export default {
     data() {
         return {
-            value: false,
+            themeToggle: true,
         };
     },
+
+    computed: {
+        theme() {
+            return useStore().getTheme;
+        },
+    },
+
     methods: {
-        changetheme() {
-            if (this.value) {
-                console.log('dark');
+        changeTheme() {
+            const currentTheme = useStore().getTheme;
+
+            if (currentTheme === 'light') {
+                useStore().setTheme('dark');
+
                 document.documentElement.setAttribute('data-theme', 'dark');
-            } else {
-                console.log('light');
-                document.documentElement.setAttribute('data-theme', 'light');
+
+                return;
             }
+            
+            useStore().setTheme('light');
+            document.documentElement.setAttribute('data-theme', 'light');
         },
     },
 };

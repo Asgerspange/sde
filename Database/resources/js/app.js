@@ -1,5 +1,7 @@
 import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import App from './App.vue';
 import router from './router';
 import PrimeVue from 'primevue/config';
@@ -15,8 +17,13 @@ import TabMenu from 'primevue/tabmenu';
 
 import 'primevue/resources/themes/saga-blue/theme.css';
 
+const store = createPinia();
+
+store.use(piniaPluginPersistedstate);
+
 const app = createApp(App)
     .use(router)
+    .use(store)
     .component('TabMenu', TabMenu)
     .component('Card', Card)
     .component('ToggleButton', ToggleButton)
