@@ -18,6 +18,8 @@
         "yarn": "^1.22.21"
     },
     "dependencies": {
+        "pinia": "^2.1.7",
+        "pinia-plugin-persistedstate": "^3.2.1",
         "primevue": "^3.46.0",
         "vue": "^3.4.7",
         "vue-loader": "^17.3.1",
