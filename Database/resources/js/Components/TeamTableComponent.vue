@@ -4,21 +4,21 @@
         <table class="styled-table">
             <thead class="guide-row">
                 <tr>
-                    <th>TeamID</th>
+                    <th>Team ID</th>
                     <th>Team Name</th>
-                    <th>Captain ID</th>
+                    <th>Captain</th>
                     <th>Sponsor</th>
-                    <th>GameID</th>
+                    <th>Game</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="entry in data" :key="entry.id" class="fade-in">
+                <tr v-for="entry in data.teams" :key="entry.id">
                     <td>{{ entry.teamID }}</td>
                     <td>{{ entry.teamName }}</td>
-                    <td>{{ entry.captainID }}</td>
+                    <td>{{ getCaptainName(entry.captainID) }}</td>
                     <td>{{ entry.sponsor }}</td>
-                    <td>{{ entry.gameID}}</td>
+                    <td>{{ getGameName(entry.gameID) }}</td>
                     <td>
                         <Button label="Show Team" class="p-button-info" @click="toggleDialog('show', entry)" />
                         <Button label="Edit" class="p-button-secondary" @click="toggleDialog('edit', entry)"/>
@@ -29,7 +29,7 @@
         </table>
     </div>
 
-    <Edit :entry="tempEntry" :visible="showEditDialog" @closed="showEditDialog = false" />
+    <Edit :entry="tempEntry" :captains="data.captains" :visible="showEditDialog" @closed="showEditDialog = false" />
     <Delete :entry="tempEntry" :visible="showDeleteDialog" @closed="showDeleteDialog = false" />
     <Add :visible="showCreateDialog" @closed="showCreateDialog = false" />
     <Team :entry="tempEntry" :visible="showTeamDialog" @closed="showTeamDialog = false" />
@@ -45,9 +45,13 @@
     export default {
         data() {
             return {
-                data: null,
+                data: {
+                    teams: [],
+                    captains: [],
+                    games: [],
+                },
                 tempEntry: null,
-                Players: null,
+                Players: [],
                 showEditDialog: false,
                 showTeamDialog: false,
                 showCreateDialog: false,
@@ -63,9 +67,15 @@
         },
 
         mounted() {
-            axios.get('api/teams/getTeams').then((response) => {
-                this.data = response.data.teams;
-            });
+            axios.all([
+                axios.get('api/teams/getTeams'),
+                axios.get('api/teams/getTeamCaptains'),
+            ])
+            .then(axios.spread((teamsResponse, captainsResponse) => {
+                this.data.teams = teamsResponse.data.teams;
+                this.data.games = teamsResponse.data.games;
+                this.data.captains = captainsResponse.data.captains;
+                }))
         },
 
         methods: {
@@ -87,9 +97,22 @@
 
                 if (action === 'show') {
                     this.tempEntry = Object.assign({}, entry);
+
                     this.showTeamDialog = true;
 
                 }
+            },
+
+            getCaptainName(captainID) {
+                const captain = this.data.captains.find((captain) => captain.id == captainID);
+
+                return captain ? captain.firstName + ' ' + captain.lastName : '';
+            },
+
+            getGameName(gameID) {
+                const game = this.data.games.find((game) => game.gameID == gameID);
+
+                return game ? game.games[0].gameName : '';
             }
         }
     };
