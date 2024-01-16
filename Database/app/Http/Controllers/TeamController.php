@@ -10,8 +10,12 @@ class TeamController extends Controller
     public function getTeams()
     {
         $teams = TeamsInfo::all();
+        $games = TeamsInfo::with('games')->get();
 
-        return response()->json(['teams' => $teams]);
+        return response()->json([
+            'teams' => $teams,
+            'games' => $games,
+        ]);
     }
 
     public function getTeam($teamId)
@@ -27,6 +31,15 @@ class TeamController extends Controller
         $members = $team->members;
 
         return response()->json(['members' => $members]);
+    }
+
+    public function getTeamCaptains()
+    {
+        $captains = TeamsInfo::with('captain')->get();
+
+        return response()->json([
+            'captains' => $captains->pluck('captain')
+        ]);
     }
 
     public function addTeamMember($teamId, $memberId)
@@ -45,10 +58,11 @@ class TeamController extends Controller
         return response()->json(['message' => 'Member removed from team']);
     }
 
-    public function updateTeam($teamId)
+    public function updateTeam($teamId, Request $request)
     {
         $team = TeamsInfo::find($teamId);
-        $team->teamName = 'New Team Name';
+        $team->teamName = $request->teamName;
+        $team->captainID = $request->captainID;
         $team->save();
 
         return response()->json(['message' => 'Team updated']);
