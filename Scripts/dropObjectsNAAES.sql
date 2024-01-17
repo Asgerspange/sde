@@ -1,6 +1,8 @@
 use NAAES;
 go
 
+DROP TABLE IF EXISTS members.passwords;
+go
 DROP TABLE IF EXISTS members.membership_history;
 go
 DROP TABLE IF EXISTS teams.players;
