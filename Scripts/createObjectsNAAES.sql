@@ -10,6 +10,7 @@ go
 
 CREATE TABLE members.info (
     id INT IDENTITY (1, 1) PRIMARY KEY, -- Hvert medlem får et id, som kan referes til
+	profilePicture VARCHAR(2000) NOT NULL, -- Medlemmets profilbillede
     firstName VARCHAR(255) NOT NULL, -- Medlemmets fornavn
     lastName VARCHAR(255) NOT NULL, -- Medlemmets efternavn
     mail VARCHAR(255) NOT NULL, -- Medlemmets mail
