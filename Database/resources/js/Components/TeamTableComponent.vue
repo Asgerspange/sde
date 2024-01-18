@@ -132,14 +132,6 @@
         border-bottom: 1px solid #ddd;
     }
 
-    .styled-table th {
-        background-color: #f2f2f2;
-    }
-
-    .styled-table tbody tr:hover {
-        background-color: #f5f5f5;
-    }
-
     .fade-in-enter-active, .fade-in-leave-active {
         transition: opacity 0.5s;
     }
