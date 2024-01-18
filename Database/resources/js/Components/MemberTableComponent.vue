@@ -1,33 +1,35 @@
 <template>
-    <div class="container">
+    <div class="container mt-4">
         <Button label="Add entry" class="p-button-success" @click="toggleDialog('add', {})"/>
-        <table class="styled-table">
-            <thead class="guide-row">
-                <tr>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Role</th>
-                    <th>Birth Year</th>
-                    <th>Team</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="entry in data" :key="entry.id" class="fade-in">
-                    <td>{{ entry.id }}</td>
-                    <td>{{ entry.firstName }}</td>
-                    <td>{{ entry.lastName }}</td>
-                    <td>{{ entry.role }}</td>
-                    <td>{{ entry.birthYear }}</td>
-                    <td>{{ entry.teamName}}</td>
-                    <td>
-                        <Button label="Edit" class="p-button-secondary" @click="toggleDialog('edit', entry)"/>
-                        <Button label="Delete" class="p-button-danger" @click="toggleDialog('delete', entry)"/>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="styled-table">
+                <thead class="guide-row">
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Role</th>
+                        <th>Birth Year</th>
+                        <th>Team</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="entry in data" :key="entry.id" class="fade-in">
+                        <td>{{ entry.id }}</td>
+                        <td>{{ entry.firstName }}</td>
+                        <td>{{ entry.lastName }}</td>
+                        <td>{{ entry.role }}</td>
+                        <td>{{ entry.birthYear }}</td>
+                        <td>{{ entry.teamName}}</td>
+                        <td>
+                            <Button label="Edit" class="p-button-secondary" @click="toggleDialog('edit', entry)"/>
+                            <Button label="Delete" class="p-button-danger" @click="toggleDialog('delete', entry)"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <Edit :entry="tempEntry" :visible="showEditDialog" @closed="showEditDialog = false" />
@@ -87,7 +89,6 @@
 
 <style lang="scss" scoped>
     .styled-table {
-        width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
     }
