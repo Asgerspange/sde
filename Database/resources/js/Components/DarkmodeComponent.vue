@@ -42,6 +42,7 @@ export default {
 <style scoped>
 .button-container {
     position: fixed;
+    z-index: 100;
     bottom: 10px;
     right: 10px;
 }
