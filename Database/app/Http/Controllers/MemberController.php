@@ -9,17 +9,25 @@ class MemberController extends Controller
 {
         public function getMembers()
     {
-        $members = Member::with('team')->get();
-    
+        $members = Member::with('team')->with('membershipHistory')->get();
+
         $result = $members->map(function ($member) {
             $teamName = optional($member->team->first())->teamName;
+            $teamID = optional($member->team->first())->teamID;
+            $teamSponsor = optional($member->team->first())->sponsor;
+            $joinDate = optional($member->membershipHistory->first())->joinDate;
             return [
                 'id' => $member->id,
+                'profilePicture' => $member->profilePicture,
                 'firstName' => $member->firstName,
                 'lastName' => $member->lastName,
                 'role' => $member->role,
+                'street' => $member->street,
                 'birthYear' => $member->birthYear,
+                'joinDate' => $joinDate,
                 'teamName' => $teamName,
+                'teamID' => $teamID,
+                'sponsor' => $teamSponsor,
             ];
         });
     

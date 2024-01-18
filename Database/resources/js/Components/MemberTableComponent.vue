@@ -23,6 +23,7 @@
                         <td>{{ entry.birthYear }}</td>
                         <td>{{ entry.teamName}}</td>
                         <td>
+                            <Button label="User" class="p-button-secondary" @click="toggleDialog('user', entry)"/>
                             <Button label="Edit" class="p-button-secondary" @click="toggleDialog('edit', entry)"/>
                             <Button label="Delete" class="p-button-danger" @click="toggleDialog('delete', entry)"/>
                         </td>
@@ -35,6 +36,7 @@
     <Edit :entry="tempEntry" :visible="showEditDialog" @closed="showEditDialog = false" />
     <Delete :entry="tempEntry" :visible="showDeleteDialog" @closed="showDeleteDialog = false" />
     <Add :visible="showCreateDialog" @closed="showCreateDialog = false" />
+    <User :entry="tempEntry" :visible="showUserDialog" @closed="showUserDialog = false" />
 </template>
 
 <script>
@@ -42,6 +44,7 @@
     import Edit from './Dialogs/Member/Edit';
     import Delete from './Dialogs/Delete';
     import Add from './Dialogs/Member/Add';
+    import User from './Dialogs/Member/User';
 
     export default {
         data() {
@@ -51,13 +54,15 @@
                 showEditDialog: false,
                 showCreateDialog: false,
                 showDeleteDialog: false,
+                showUserDialog: false
             };
         },
 
         components: {
             Delete,
             Edit,
-            Add
+            Add,
+            User
         },
 
         mounted() {
@@ -82,6 +87,11 @@
                     this.tempEntry = Object.assign({}, entry);
                     this.showDeleteDialog = true;
                 }
+
+                if (action === 'user') {
+                    this.tempEntry = Object.assign({}, entry);
+                    this.showUserDialog = true;
+                }
             }
         }
     };
@@ -89,6 +99,7 @@
 
 <style lang="scss" scoped>
     .styled-table {
+        width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
     }
