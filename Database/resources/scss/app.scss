@@ -55,3 +55,30 @@ html[data-theme='dark'] {
         color: #fef8ea;
     }
 }
+
+html[data-theme='light'] {
+    body{
+        background-color: $white-primary;
+        color: black;
+    }
+
+    .styled-table th {
+        background-color: #d7c9ba !important;
+
+        &:hover {
+            background-color: #e6e6e6 !important;
+        }
+    }
+
+    .styled-table tbody tr:hover {
+        background-color: #e6e6e6 !important;
+    }
+
+    .p-menuitem-link {
+        background-color: $white-primary;
+    }
+
+    .tablinka {
+        color: #111111;
+    }
+}

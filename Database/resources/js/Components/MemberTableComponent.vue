@@ -23,7 +23,7 @@
                         <td>{{ entry.birthYear }}</td>
                         <td>{{ entry.teamName}}</td>
                         <td>
-                            <Button label="User" class="p-button-secondary" @click="toggleDialog('user', entry)"/>
+                            <Button label="User" class="p-button-info" @click="toggleDialog('user', entry)"/>
                             <Button label="Edit" class="p-button-secondary" @click="toggleDialog('edit', entry)"/>
                             <Button label="Delete" class="p-button-danger" @click="toggleDialog('delete', entry)"/>
                         </td>
@@ -92,7 +92,7 @@
                     this.tempEntry = Object.assign({}, entry);
                     this.showUserDialog = true;
                 }
-            }
+            },
         }
     };
 </script>
