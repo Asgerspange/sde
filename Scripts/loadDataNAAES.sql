@@ -163,3 +163,13 @@ VALUES
     (1, 4),
     (2, 5),
     (2, 6);
+
+INSERT INTO tournaments.matches (tournamentID, team1ID, team2ID, startDate, endDate, winnerID)
+VALUES
+    (1, 1, 2, '2023-07-02 15:00:00', '2023-07-02 17:00:00', 1),  -- Team 1 vs. Team 2, Team 1 wins
+    (1, 3, 4, '2023-07-03 14:30:00', '2023-07-03 16:30:00', 4),  -- Team 3 vs. Team 4, Team 4 wins
+    (1, 2, 4, '2023-07-05 16:00:00', '2023-07-05 18:00:00', NULL), -- Team 2 vs. Team 4, no winner yet
+    (2, 5, 6, '2023-08-02 19:00:00', NULL, NULL), -- Team 5 vs. Team 6, no end date yet
+    (3, 1, 3, '2023-06-17 17:30:00', '2023-06-17 19:30:00', 1),  -- Team 1 vs. Team 3, Team 1 wins
+    (3, 2, 4, '2023-06-18 16:45:00', '2023-06-18 18:45:00', 2),  -- Team 2 vs. Team 4, Team 2 wins
+    (4, 5, 6, '2023-09-02 20:30:00', '2023-09-02 22:30:00', NULL); -- Team 5 vs. Team 6, no winner yet

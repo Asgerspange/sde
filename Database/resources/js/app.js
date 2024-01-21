@@ -14,6 +14,7 @@ import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import Dialog from 'primevue/dialog';
 import TabMenu from 'primevue/tabmenu';
+import Calendar from 'primevue/calendar';
 
 import 'primevue/resources/themes/saga-blue/theme.css';
 
@@ -24,6 +25,7 @@ store.use(piniaPluginPersistedstate);
 const app = createApp(App)
     .use(router)
     .use(store)
+    .component('Calendar', Calendar)
     .component('TabMenu', TabMenu)
     .component('Card', Card)
     .component('ToggleButton', ToggleButton)

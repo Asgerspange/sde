@@ -35,7 +35,7 @@
 
     <Edit :entry="tempEntry" :visible="showEditDialog" @closed="showEditDialog = false" />
     <Delete :entry="tempEntry" :visible="showDeleteDialog" @closed="showDeleteDialog = false" />
-    <Add :visible="showCreateDialog" @closed="showCreateDialog = false" />
+    <Add :visible="showCreateDialog" @closed="showCreateDialog = false" @update="refreshMembers()"/>
     <User :entry="tempEntry" :visible="showUserDialog" @closed="showUserDialog = false" />
 </template>
 
@@ -93,6 +93,12 @@
                     this.showUserDialog = true;
                 }
             },
+
+            refreshMembers() {
+                axios.get('api/members/getMembers').then((response) => {
+                    this.data = response.data.result;
+                });
+            }
         }
     };
 </script>

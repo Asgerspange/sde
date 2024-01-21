@@ -20,6 +20,7 @@
                     <td>{{ entry.location }}</td>
                     <td>{{ entry.winner ? entry.winner.teamName : "No Winner" }}</td>
                     <td>
+                        <Button label="Show Tournament" class="p-button-info" @click="toggleDialog('show', entry)"/>
                         <Button label="Edit" class="p-button-secondary" @click="toggleDialog('edit', entry)"/>
                         <Button label="Delete" class="p-button-danger" @click="toggleDialog('delete', entry)"/>
                     </td>
@@ -28,16 +29,14 @@
         </table>
     </div>
 
-    <Edit :entry="tempEntry" :visible="showEditDialog" @closed="showEditDialog = false" />
     <Delete :entry="tempEntry" :visible="showDeleteDialog" @closed="showDeleteDialog = false" />
-    <Add :visible="showCreateDialog" @closed="showCreateDialog = false" />
+    <Tournament :entry="tempEntry" :visible="showTournamentDialog" @closed="showTournamentDialog = false" />
 </template>
 
 <script>
     import axios from 'axios';
-    import Edit from './Dialogs/Team/Edit';
     import Delete from './Dialogs/Delete';
-    import Add from './Dialogs/Team/Add';
+    import Tournament from './Dialogs/Tournament/Tournament';
 
     export default {
         data() {
@@ -47,13 +46,13 @@
                 showEditDialog: false,
                 showCreateDialog: false,
                 showDeleteDialog: false,
+                showTournamentDialog: false
             };
         },
 
         components: {
             Delete,
-            Edit,
-            Add
+            Tournament
         },
 
         mounted() {
@@ -77,6 +76,12 @@
                 if (action === 'delete') {
                     this.tempEntry = Object.assign({}, entry);
                     this.showDeleteDialog = true;
+                }
+
+                if (action === 'show') {
+                    console.log(entry)
+                    this.tempEntry = entry;
+                    this.showTournamentDialog = true;
                 }
             }
         }

@@ -9,7 +9,7 @@
                     <InputText v-model="entry.lastName" placeholder="Last Name"></InputText>
                 </div>
                 <div class="col-6">
-                    <InputText v-model="entry.birthYear" placeholder="Birth Year"></InputText>
+                    <Calendar v-model="birthYear" placeholder="Birth Date" view="year" dateFormat="yy" /> 
                 </div>
                 <div class="col-6">
                     <InputText v-model="entry.mail" placeholder="Mail"></InputText>
@@ -42,8 +42,8 @@ import axios from 'axios';
                     mail: '',
                     phoneNumber: '',
                     street: '',
-                    birthYear: ''
                 },
+                birthYear: ''
             }
         },
         props: {
@@ -52,13 +52,23 @@ import axios from 'axios';
 
         methods: {
             close() {
+                this.entry = {
+                    firstName: '',
+                    lastName: '',
+                    mail: '',
+                    phoneNumber: '',
+                    street: '',
+                };
+                this.birthYear = '';
                 this.$emit('closed');
             },
 
             addEntry() {
-                return axios.post('api/members/addMember', this.entry)
+                let birthYear = this.birthYear.getFullYear();
+                return axios.post('api/members/addMember', [this.entry, birthYear])
                     .then(() => {
                         this.close();
+                        this.$emit('update');
                     });
             }
         }

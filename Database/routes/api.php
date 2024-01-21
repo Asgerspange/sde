@@ -19,6 +19,7 @@ Route::group(['prefix' => 'teams'], function () {
 
 Route::group(['prefix' => 'members'], function () {
     Route::get('/getMembers', 'MemberController@getMembers');
+    Route::get('/getMember/{id}', 'MemberController@getMember');
     Route::post('/updateMember', 'MemberController@updateMember');
     Route::post('/deleteMember', 'MemberController@deleteMember');
     Route::post('/addMember', 'MemberController@addMember');

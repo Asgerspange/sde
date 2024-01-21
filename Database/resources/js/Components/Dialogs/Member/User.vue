@@ -8,9 +8,10 @@
                     </div>
                     <div class="user-details">
                         <div class="user--info">
-                            <p>Name: {{ entry.firstName + ' ' + entry.lastName }}</p>
+                            <p>Navn: {{ entry.firstName + ' ' + entry.lastName }}</p>
+                            <p>Alder: {{ getAge(entry.birthYear) }}</p>
                             <p>Adresse: {{ entry.street }}</p>
-                            <p>Hold: <a @click="team()">{{ entry.teamName }}</a></p>
+                            <p>Hold: {{ entry.teamName }}</p>
                         </div>
                         <div class="user--stats">
                             <h4>Stats</h4>
@@ -28,21 +29,14 @@
             <Button @click="update()" text label="Update"/>
         </template>
     </Dialog>
-
-    <Team :entry="tempEntry" :visible="showTeamDialog" @closed="showTeamDialog = false" />
 </template>
 
 <script>
-    import Team from '../Team/Team';
     export default {
         data() {
             return {
                 showTeamDialog: false,
             };
-        },
-
-        components: {
-            Team
         },
 
         props: {
@@ -55,49 +49,51 @@
                 this.$emit('closed');
             },
 
-            team() {
-                this.tempEntry = Object.assign({}, this.entry);
-                this.showTeamDialog = true;
-            }
+            getAge(birthYear) {
+                const currentYear = new Date().getFullYear();
+                const age = currentYear - birthYear;
+
+                return age;
+            },
         }
     }
 </script>
         
 <style scoped>
-.user-profile {
-    display: flex;
-    align-items: flex-start;
-}
+    .user-profile {
+        display: flex;
+        align-items: flex-start;
+    }
 
-.user--image--container {
-    margin-top: 10px;
-    margin-left: 10px;
-}
+    .user--image--container {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
 
-.user--image {
-    max-width: 200px;
-}
+    .user--image {
+        max-width: 200px;
+    }
 
-.user-details {
-    display: flex;
-    margin-left: 20px; 
-}
+    .user-details {
+        display: flex;
+        margin-left: 20px; 
+    }
 
-.user--info {
-    width: 200px;
-}
+    .user--info {
+        width: 200px;
+    }
 
-.user--stats {
-    width: 150px;
-    margin-left: 20px;
-}
+    .user--stats {
+        width: 150px;
+        margin-left: 20px;
+    }
 
-.membership--history {
-    margin-top: 20px;
-    margin-left: 10px;
-}
+    .membership--history {
+        margin-top: 20px;
+        margin-left: 10px;
+    }
 
-.p-dialog-header-icon {
-    display: none;
-}
+    .p-dialog-header-icon {
+        display: none;
+    }
 </style>

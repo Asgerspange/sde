@@ -84,3 +84,20 @@ CREATE TABLE tournaments.tournament_teams (
     FOREIGN KEY (tournamentID) REFERENCES tournaments.tournament_info(tournamentID), -- tournamentID referer til turnerings id
     FOREIGN KEY (teamID) REFERENCES teams.info(teamID) -- teamID referer til holdets id
 );
+
+CREATE TABLE tournaments.matches (
+    matchID INT IDENTITY (1, 1) PRIMARY KEY, -- Unique ID for each match
+    tournamentID INT, -- The ID of the tournament the match belongs to
+    team1ID INT, -- The ID of the first team in the match
+    team2ID INT, -- The ID of the second team in the match
+    startDate DATETIME NOT NULL, -- The start date and time of the match
+    endDate DATETIME, -- The end date and time of the match (if it's completed)
+    winnerID INT, -- The ID of the winning team (if the match is completed)
+    created_at DATETIME DEFAULT GETDATE(), -- When the match entry was created
+    updated_at DATETIME, -- When the match entry was last updated
+    deleted_at DATETIME, -- When the match entry was soft-deleted
+    FOREIGN KEY (tournamentID) REFERENCES tournaments.tournament_info(tournamentID), -- tournamentID refers to the tournament the match belongs to
+    FOREIGN KEY (team1ID) REFERENCES teams.info(teamID), -- team1ID refers to the first team in the match
+    FOREIGN KEY (team2ID) REFERENCES teams.info(teamID), -- team2ID refers to the second team in the match
+    FOREIGN KEY (winnerID) REFERENCES teams.info(teamID) -- winnerID refers to the winning team
+);
