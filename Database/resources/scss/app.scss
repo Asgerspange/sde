@@ -63,15 +63,15 @@ html[data-theme='light'] {
     }
 
     .styled-table th {
-        background-color: #d7c9ba !important;
+        background-color: $cyan-primary !important;
 
         &:hover {
-            background-color: #e6e6e6 !important;
+            background-color: $white-hover !important;
         }
     }
 
     .styled-table tbody tr:hover {
-        background-color: #e6e6e6 !important;
+        background-color: $white-hover !important;
     }
 
     .p-menuitem-link {

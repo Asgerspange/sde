@@ -20,7 +20,7 @@
                     <h3>Players</h3>
                 </div>
                 <ul class="player-list">
-                    <li v-for="player in data" :key="player.id">
+                    <li v-for="player in data" :key="player.id" @click="showUser(player)">
                         {{ player.firstName }}
                         {{ player.lastName }}
                     </li>
@@ -32,17 +32,25 @@
             <Button @click="close()" severity="secondary" text label="Close" />
         </template>
     </Dialog>
+        <User :entry="tempEntry" :visible="showUserDialog" @closed="showUserDialog = false" />
+
+
 </template>
 
-  
-
 <script>
+    import User from '../Member/User';
     import axios from 'axios';
     export default {
         data() {
             return {
                 data: null,
+                showUserDialog: false,
+                tempEntry: null
             };
+        },
+
+        components: {
+            User
         },
 
         props: {
@@ -67,6 +75,13 @@
             getTeamMembers () {
                 axios.get('/api/teams/getTeamMembers/' + this.entry.teamID).then(response => {
                     this.data = response.data.members;
+                });
+            },
+
+            showUser(user) {
+                axios.get('/api/members/getMember/' + user.id).then(response => {
+                    this.tempEntry = response.data.result[0];
+                    this.showUserDialog = true;
                 });
             }
         }

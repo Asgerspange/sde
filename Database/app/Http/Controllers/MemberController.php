@@ -64,15 +64,43 @@ class MemberController extends Controller
     public function addMember(Request $request)
     {
         $member = new Member();
-        $member->firstName = $request->firstName;
-        $member->lastName = $request->lastName;
-        $member->mail = $request->mail;
-        $member->phoneNumber = $request->phoneNumber;
-        $member->street = $request->street;
-        $member->birthYear = $request->birthYear;
+        $member->profilePicture = 'https://source.unsplash.com/random/200x200';
+        $member->firstName = $request[0]['firstName'];
+        $member->lastName = $request[0]['lastName'];
+        $member->mail = $request[0]['mail'];
+        $member->phoneNumber = $request[0]['phoneNumber'];
+        $member->street = $request[0]['street'];
+        $member->birthYear = $request[1];
         $member->role = 'None';
         $member->save();
 
         return response()->json(['result' => $member]);
+    }
+
+    public function getMember(Request $request)
+    {
+        $member = Member::with('team')->with('membershipHistory')->where('id', $request->id)->get();
+
+        $result = $member->map(function ($member) {
+            $teamName = optional($member->team->first())->teamName;
+            $teamID = optional($member->team->first())->teamID;
+            $teamSponsor = optional($member->team->first())->sponsor;
+            $joinDate = optional($member->membershipHistory->first())->joinDate;
+            return [
+                'id' => $member->id,
+                'profilePicture' => $member->profilePicture,
+                'firstName' => $member->firstName,
+                'lastName' => $member->lastName,
+                'role' => $member->role,
+                'street' => $member->street,
+                'birthYear' => $member->birthYear,
+                'joinDate' => $joinDate,
+                'teamName' => $teamName,
+                'teamID' => $teamID,
+                'sponsor' => $teamSponsor,
+            ];
+        });
+    
+        return response()->json(['result' => $result]);
     }
 }
