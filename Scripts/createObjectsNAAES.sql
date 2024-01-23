@@ -1,12 +1,12 @@
 use NAAES;
 go
 
-CREATE SCHEMA members;
-go
-CREATE SCHEMA teams;
-go
-CREATE SCHEMA tournaments;
-go
+--CREATE SCHEMA members;
+--go
+--CREATE SCHEMA teams;
+--go
+--CREATE SCHEMA tournaments;
+--go
 
 CREATE TABLE members.info (
     id INT IDENTITY (1, 1) PRIMARY KEY, -- Hvert medlem får et id, som kan referes til
@@ -21,12 +21,6 @@ CREATE TABLE members.info (
 	created_at DATETIME DEFAULT GETDATE(), -- Hvornår blev entryet lavet
     updated_at DATETIME, -- Hvornår blev entryet opdateret
     deleted_at DATETIME -- Hvornår blev entryet slettet (Soft delete)
-);
-
-CREATE TABLE members.passwords (
-	id INT PRIMARY KEY, -- Medlemmets id så password passer med medlemmet
-	password VARCHAR(255) NOT NULL, -- Medlemmets password
-	FOREIGN KEY (id) REFERENCES members.info(id) ON DELETE CASCADE -- Referer id til medlemmets id
 );
 
 CREATE TABLE members.membership_history (

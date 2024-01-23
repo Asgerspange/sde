@@ -79,7 +79,6 @@
                 }
 
                 if (action === 'show') {
-                    console.log(entry)
                     this.tempEntry = entry;
                     this.showTournamentDialog = true;
                 }

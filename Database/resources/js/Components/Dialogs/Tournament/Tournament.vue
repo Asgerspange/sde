@@ -12,8 +12,6 @@
 
 <script>
     export default {
-        data() {
-        },
         props: {
             visible: Boolean,
             entry: Object
@@ -21,7 +19,6 @@
 
         methods: {
             close() {
-                console.log(entry)
                 this.$emit('closed');
             },
         }

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
-        public function getMembers()
+    public function getMembers()
     {
         $members = Member::with('team')->with('membershipHistory')->get();
 

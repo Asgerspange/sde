@@ -34,39 +34,6 @@ VALUES
     ('https://source.unsplash.com/random/200x200', 'Jackson', 'Gomez', 'jackson.gomez@email.com', '77889922', '123 Elm St', 1993, 'Player'),
     ('https://source.unsplash.com/random/200x200', 'Aria', 'Pearson', 'aria.pearson@email.com', '11223311', '456 Oak St', 1991, 'Player');
 
-INSERT INTO members.passwords (id, password)
-VALUES
-    (1, 'password1'),
-    (2, 'password2'),
-    (3, 'password3'),
-    (4, 'password4'),
-    (5, 'password5'),
-    (6, 'password6'),
-    (7, 'password7'),
-    (8, 'password8'),
-    (9, 'password9'),
-    (10, 'password10'),
-    (11, 'password11'),
-    (12, 'password12'),
-    (13, 'password13'),
-    (14, 'password14'),
-    (15, 'password15'),
-    (16, 'password16'),
-    (17, 'password17'),
-    (18, 'password18'),
-    (19, 'password19'),
-    (20, 'password20'),
-    (21, 'password21'),
-    (22, 'password22'),
-    (23, 'password23'),
-    (24, 'password24'),
-    (25, 'password25'),
-    (26, 'password26'),
-    (27, 'password27'),
-    (28, 'password28'),
-    (29, 'password29'),
-    (30, 'password30');
-
 INSERT INTO members.membership_history (memberId, joinDate, leaveDate, active)
 VALUES
     (1, '2022-01-01', NULL, 1),
