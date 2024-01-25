@@ -4,22 +4,22 @@
             <div class="info-container">
                 <div class="info">
                     <div class="d-flex">
-                        <div class="label">Team:&nbsp;</div>
-                        <div class="value">{{ entry.teamName }}</div>
+                        <div class="label text--black">Team:&nbsp;</div>
+                        <div class="value text--black">{{ entry.teamName }}</div>
                     </div>
                 </div>
                 <div class="info">
                     <div class="d-flex">
-                        <div class="label">Sponsor:&nbsp;</div>
-                        <div class="value">{{ entry.sponsor }}</div>
+                        <div class="label text--black">Sponsor:&nbsp;</div>
+                        <div class="value text--black">{{ entry.sponsor }}</div>
                     </div>
                 </div>
             </div>
             <div class="player-container">
                 <div class="player-header">
-                    <h3>Players</h3>
+                    <h3 class="text--black">Players</h3>
                 </div>
-                <ul class="player-list">
+                <ul class="player-list text--black">
                     <li v-for="player in data" :key="player.id" @click="showUser(player)">
                         {{ player.firstName }}
                         {{ player.lastName }}

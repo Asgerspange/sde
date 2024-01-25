@@ -35,8 +35,18 @@ html[data-theme='dark'] {
         color: white;
     }
 
+    .p-dialog-title {
+        color: white;
+    }
+
+    .text {
+        &--black {
+            color: white;
+        }
+    }
+
     .styled-table th {
-        background-color: #222222 !important;
+        background-color: $black-secondary !important;
 
         &:hover {
             background-color: #333333 !important;
@@ -58,11 +68,37 @@ html[data-theme='dark'] {
     .p-paginator {
         background-color: $black-primary;
     }
+
+    .p-dialog {
+        &-header {
+            background-color: $black-secondary;
+        }
+        &-content {
+            background-color: $black-secondary;
+
+            p {
+                color: white;
+            }
+        }
+        &-footer {
+            background-color: $black-secondary;
+        }
+    }
 }
 
 html[data-theme='light'] {
     body{
         background-color: $white-primary;
+        color: black;
+    }
+
+    .text {
+        &--black {
+            color: black;
+        }
+    }
+
+    .p-dialog-title {
         color: black;
     }
 

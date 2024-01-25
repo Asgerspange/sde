@@ -7,19 +7,16 @@
                         <img :src="entry.profilePicture" alt="Avatar" class="user--image">
                     </div>
                     <div class="user-details">
-                        <div class="user--info">
+                        <div class="user--info text--black">
                             <p>Navn: {{ entry.firstName + ' ' + entry.lastName }}</p>
                             <p>Alder: {{ getAge(entry.birthYear) }}</p>
                             <p>Adresse: {{ entry.street }}</p>
                             <p>Hold: {{ entry.teamName }}</p>
                         </div>
-                        <div class="user--stats">
-                            <h4>Stats</h4>
-                        </div>
                     </div>
                 </div>
                 <div class="membership--history">
-                    <p>Medlem tilmeldt: {{ entry.joinDate }}</p>
+                    <p class="text--black">Medlem tilmeldt: {{ entry.joinDate }}</p>
                 </div>
             </div>
         </template>
@@ -81,11 +78,6 @@
 
     .user--info {
         width: 200px;
-    }
-
-    .user--stats {
-        width: 150px;
-        margin-left: 20px;
     }
 
     .membership--history {
