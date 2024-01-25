@@ -3,19 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\MembershipHistory;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
-    public function getMembers()
+    public function getMembers(Request $request)
     {
-        $members = Member::with('team')->with('membershipHistory')->get();
+        $perPage = $request->input('rows', 10); // Number of items per page, default to 10
+        $page = $request->input('first', 0) / $perPage + 1; // Calculate the current page
+
+        $members = Member::with('team')->with('membershipHistory')
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
+            ->get();
+
+        $totalRecords = Member::count(); // Get the total number of records
 
         $result = $members->map(function ($member) {
             $teamName = optional($member->team->first())->teamName;
             $teamID = optional($member->team->first())->teamID;
             $teamSponsor = optional($member->team->first())->sponsor;
             $joinDate = optional($member->membershipHistory->first())->joinDate;
+
             return [
                 'id' => $member->id,
                 'profilePicture' => $member->profilePicture,
@@ -30,9 +40,10 @@ class MemberController extends Controller
                 'sponsor' => $teamSponsor,
             ];
         });
-    
-        return response()->json(['result' => $result]);
+
+        return response()->json(['result' => $result, 'totalRecords' => $totalRecords]);
     }
+
 
     public function updateMember(Request $request)
     {
@@ -64,7 +75,6 @@ class MemberController extends Controller
     public function addMember(Request $request)
     {
         $member = new Member();
-        $member->profilePicture = 'https://source.unsplash.com/random/200x200';
         $member->firstName = $request[0]['firstName'];
         $member->lastName = $request[0]['lastName'];
         $member->mail = $request[0]['mail'];
@@ -73,6 +83,10 @@ class MemberController extends Controller
         $member->birthYear = $request[1];
         $member->role = 'None';
         $member->save();
+
+        $membershipHistory = new MembershipHistory();
+        $membershipHistory->memberId = $member->id;
+        $membershipHistory->save();
 
         return response()->json(['result' => $member]);
     }

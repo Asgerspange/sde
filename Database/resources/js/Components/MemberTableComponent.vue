@@ -31,6 +31,8 @@
                 </tbody>
             </table>
         </div>
+        <LoadingComponent v-show="loading" />
+        <Paginator :totalRecords="totalRecords" :rows="rows" :first="first" @page="onPageChange" />
     </div>
 
     <Edit :entry="tempEntry" :visible="showEditDialog" @closed="showEditDialog = false" />
@@ -45,6 +47,7 @@
     import Delete from './Dialogs/Delete';
     import Add from './Dialogs/Member/Add';
     import User from './Dialogs/Member/User';
+    import LoadingComponent from './LoadingComponent';
 
     export default {
         data() {
@@ -54,7 +57,11 @@
                 showEditDialog: false,
                 showCreateDialog: false,
                 showDeleteDialog: false,
-                showUserDialog: false
+                showUserDialog: false,
+                totalRecords: 0,
+                rows: 5,
+                first: 0,
+                loading: true
             };
         },
 
@@ -62,13 +69,18 @@
             Delete,
             Edit,
             Add,
-            User
+            User,
+            LoadingComponent
         },
 
         mounted() {
-            axios.get('api/members/getMembers').then((response) => {
-                this.data = response.data.result;
-            });
+            setTimeout(() => {
+                Promise.all([
+                    this.fetchMembers(),
+                ]).then(() => {
+                    this.loading = false;
+                });
+            }, 3000);
         },
 
         methods: {
@@ -94,10 +106,28 @@
                 }
             },
 
-            refreshMembers() {
-                axios.get('api/members/getMembers').then((response) => {
+            fetchMembers() {
+                this.loading = true;
+                axios.get('api/members/getMembers', {
+                    params: {
+                        first: this.first,
+                        rows: this.rows,
+                    },
+                }).then((response) => {
                     this.data = response.data.result;
+                    this.totalRecords = response.data.totalRecords;
+                    this.loading = false;
                 });
+            },
+
+            onPageChange(event) {
+                this.first = event.first;
+                this.rows = event.rows;
+                this.fetchMembers();
+            },
+
+            refreshMembers() {
+                this.fetchMembers();
             }
         }
     };

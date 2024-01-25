@@ -54,6 +54,10 @@ html[data-theme='dark'] {
     .tablinka {
         color: #fef8ea;
     }
+
+    .p-paginator {
+        background-color: $black-primary;
+    }
 }
 
 html[data-theme='light'] {
@@ -80,5 +84,9 @@ html[data-theme='light'] {
 
     .tablinka {
         color: #111111;
+    }
+
+    .p-paginator {
+        background-color: $white-primary;
     }
 }

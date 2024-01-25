@@ -15,6 +15,8 @@ import Button from 'primevue/button';
 import Dialog from 'primevue/dialog';
 import TabMenu from 'primevue/tabmenu';
 import Calendar from 'primevue/calendar';
+import ProgressSpinner from 'primevue/progressspinner';
+import Paginator from 'primevue/paginator';
 
 import 'primevue/resources/themes/saga-blue/theme.css';
 
@@ -26,7 +28,9 @@ const app = createApp(App)
     .use(router)
     .use(store)
     .component('Calendar', Calendar)
+    .component('ProgressSpinner', ProgressSpinner)
     .component('TabMenu', TabMenu)
+    .component('Paginator', Paginator)
     .component('Card', Card)
     .component('ToggleButton', ToggleButton)
     .component('InputText', InputText)

@@ -10,11 +10,11 @@ go
 
 CREATE TABLE members.info (
     id INT IDENTITY (1, 1) PRIMARY KEY, -- Hvert medlem får et id, som kan referes til
-	profilePicture VARCHAR(2000) NOT NULL, -- Medlemmets profilbillede
+	profilePicture VARCHAR(2000) DEFAULT 'https://source.unsplash.com/random/200x200' NOT NULL, -- Medlemmets profilbillede
     firstName VARCHAR(255) NOT NULL, -- Medlemmets fornavn
     lastName VARCHAR(255) NOT NULL, -- Medlemmets efternavn
     mail VARCHAR(255) NOT NULL, -- Medlemmets mail
-    phoneNumber VARCHAR(15) NOT NULL, -- Medlemmets Telefonnummer
+    phoneNumber INT NOT NULL CHECK (phoneNumber >= 10000000 AND phoneNumber <= 99999999), -- Medlemmets Telefonnummer
     street VARCHAR(255) NOT NULL, -- Medlemmets Addresse
     birthYear INT NOT NULL, -- Medlemmets fødselsår
     role VARCHAR(50), -- Medlemmets rolle på et hold
@@ -25,9 +25,12 @@ CREATE TABLE members.info (
 
 CREATE TABLE members.membership_history (
     memberId INT NOT NULL, -- Medlemmets id så historien passer med medlemmet
-    joinDate DATE NOT NULL, -- Medlemmets tilmeldingsdato
+    joinDate DATE DEFAULT GETDATE() NOT NULL, -- Medlemmets tilmeldingsdato
     leaveDate DATE, -- Medlemmets forladelsesdato
     active INT DEFAULT 1 NOT NULL, -- 1 hvis medlemmet er aktivt, 0 hvis det ikke er
+	created_at DATETIME DEFAULT GETDATE(), -- Hvornår blev entryet lavet
+    updated_at DATETIME, -- Hvornår blev entryet opdateret
+    deleted_at DATETIME -- Hvornår blev entryet slettet (Soft delete)
     FOREIGN KEY (memberId) REFERENCES members.info(id) -- så memberId passer til medlemmets id
 );
 

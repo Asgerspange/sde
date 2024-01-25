@@ -30,73 +30,73 @@ go
 --go
 
 -------- Create View to display each members team and team captain
---CREATE VIEW members.MembersWithTeams AS
---SELECT
---    m.id AS MemberID,
---    m.firstName,
---    m.lastName,
---    m.mail,
---    m.phoneNumber,
---    m.street,
---    m.birthYear,
---    m.role,
---    t.teamName,
---    t.captainID AS TeamCaptainID,
---    c.firstName AS TeamCaptainFirstName,
---    c.lastName AS TeamCaptainLastName
---FROM
---    members.info m
---JOIN
---    teams.players p ON m.id = p.playerID
---JOIN
---    teams.info t ON p.teamID = t.teamID
---LEFT JOIN
---    members.info c ON t.captainID = c.id;
---go
-
---select * from members.MembersWithTeams;
-
--------- Stored procedure that shows tournament details
-CREATE PROCEDURE GetTournamentDetails
-    @tournamentID INT
-AS
-BEGIN
-    SELECT
-        ti.tournamentID,
-        ti.tournamentName,
-        ti.startDate,
-        ti.endDate,
-        ti.location,
-        ti.winnerID AS WinningTeamID,
-        t.teamName AS WinningTeamName,
-        m.matchID,
-        m.team1ID AS Team1ID,
-        t1.teamName AS Team1Name,
-        m.team2ID AS Team2ID,
-        t2.teamName AS Team2Name,
-        m.startDate AS MatchStartDate,
-        m.endDate AS MatchEndDate,
-        m.winnerID AS MatchWinnerID,
-        wt.teamName AS MatchWinnerTeamName
-    FROM
-        tournaments.tournament_info ti
-    LEFT JOIN
-        tournaments.matches m ON ti.tournamentID = m.tournamentID
-    LEFT JOIN
-        teams.info t ON ti.winnerID = t.teamID
-    LEFT JOIN
-        teams.info t1 ON m.team1ID = t1.teamID
-    LEFT JOIN
-        teams.info t2 ON m.team2ID = t2.teamID
-    LEFT JOIN
-        teams.info wt ON m.winnerID = wt.teamID
-    WHERE
-        ti.tournamentID = @tournamentID;
-END;
-
-EXEC GetTournamentDetails @tournamentID = 1;
+CREATE VIEW members.MembersWithTeams AS
+SELECT
+    m.id AS MemberID,
+    m.firstName,
+    m.lastName,
+    m.mail,
+    m.phoneNumber,
+    m.street,
+    m.birthYear,
+    m.role,
+    t.teamName,
+    t.captainID AS TeamCaptainID,
+    c.firstName AS TeamCaptainFirstName,
+    c.lastName AS TeamCaptainLastName
+FROM
+    members.info m
+JOIN
+    teams.players p ON m.id = p.playerID
+JOIN
+    teams.info t ON p.teamID = t.teamID
+LEFT JOIN
+    members.info c ON t.captainID = c.id;
 go
 
+select * from members.MembersWithTeams;
+
+---------- Stored procedure that shows tournament details
+--CREATE PROCEDURE GetTournamentDetails
+--    @tournamentID INT
+--AS
+--BEGIN
+--    SELECT
+--        ti.tournamentID,
+--        ti.tournamentName,
+--        ti.startDate,
+--        ti.endDate,
+--        ti.location,
+--        ti.winnerID AS WinningTeamID,
+--        t.teamName AS WinningTeamName,
+--        m.matchID,
+--        m.team1ID AS Team1ID,
+--        t1.teamName AS Team1Name,
+--        m.team2ID AS Team2ID,
+--        t2.teamName AS Team2Name,
+--        m.startDate AS MatchStartDate,
+--        m.endDate AS MatchEndDate,
+--        m.winnerID AS MatchWinnerID,
+--        wt.teamName AS MatchWinnerTeamName
+--    FROM
+--        tournaments.tournament_info ti
+--    LEFT JOIN
+--        tournaments.matches m ON ti.tournamentID = m.tournamentID
+--    LEFT JOIN
+--        teams.info t ON ti.winnerID = t.teamID
+--    LEFT JOIN
+--        teams.info t1 ON m.team1ID = t1.teamID
+--    LEFT JOIN
+--        teams.info t2 ON m.team2ID = t2.teamID
+--    LEFT JOIN
+--        teams.info wt ON m.winnerID = wt.teamID
+--    WHERE
+--        ti.tournamentID = @tournamentID;
+--END;
+
+--EXEC GetTournamentDetails @tournamentID = 1;
+--go
+go
 CREATE TRIGGER UpdateMemberUpdatedAt
 ON members.info
 AFTER UPDATE
