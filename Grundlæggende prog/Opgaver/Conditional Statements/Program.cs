@@ -30,7 +30,7 @@ namespace Conditional_Statements
 
         static int DivisbleBy2Or3(int a, int b)
         {
-            return a % 2 == 0 || b % 3 == 0 ? a * b : a + b;
+            return (a % 2 == 0 && b % 3 == 0) || (a % 3 == 0 && b % 2 == 0) ? a * b : a + b;
         }
 
         static bool CheckIfStringIsUpperCase(string str)
