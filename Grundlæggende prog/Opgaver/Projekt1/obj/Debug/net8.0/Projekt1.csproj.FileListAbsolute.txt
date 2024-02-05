@@ -1,0 +1,15 @@
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\bin\Debug\net8.0\Projekt1.exe
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\bin\Debug\net8.0\Projekt1.deps.json
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\bin\Debug\net8.0\Projekt1.runtimeconfig.json
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\bin\Debug\net8.0\Projekt1.dll
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\bin\Debug\net8.0\Projekt1.pdb
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\obj\Debug\net8.0\Projekt1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\obj\Debug\net8.0\Projekt1.AssemblyInfoInputs.cache
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\obj\Debug\net8.0\Projekt1.AssemblyInfo.cs
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\obj\Debug\net8.0\Projekt1.csproj.CoreCompileInputs.cache
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\obj\Debug\net8.0\Projekt1.sourcelink.json
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\obj\Debug\net8.0\Projekt1.dll
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\obj\Debug\net8.0\refint\Projekt1.dll
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\obj\Debug\net8.0\Projekt1.pdb
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\obj\Debug\net8.0\Projekt1.genruntimeconfig.cache
+C:\Users\HFGF\Desktop\skole\Grundlæggende prog\Opgaver\Projekt1\obj\Debug\net8.0\ref\Projekt1.dll
