@@ -8,24 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\HFGF\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\asger\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Conditional Statements\\Conditional Statements.csproj",
+      "projectUniqueName": "C:\\Users\\asger\\Desktop\\test\\sde\\Grundlæggende prog\\Opgaver\\Conditional Statements\\Conditional Statements.csproj",
       "projectName": "Conditional Statements",
-      "projectPath": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Conditional Statements\\Conditional Statements.csproj",
-      "packagesPath": "C:\\Users\\HFGF\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Conditional Statements\\obj\\",
+      "projectPath": "C:\\Users\\asger\\Desktop\\test\\sde\\Grundlæggende prog\\Opgaver\\Conditional Statements\\Conditional Statements.csproj",
+      "packagesPath": "C:\\Users\\asger\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\asger\\Desktop\\test\\sde\\Grundlæggende prog\\Opgaver\\Conditional Statements\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\HFGF\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\asger\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -33,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
