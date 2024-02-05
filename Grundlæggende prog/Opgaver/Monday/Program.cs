@@ -10,7 +10,7 @@ namespace Projekt1
             WriteLine();
             WriteLine(CelsiusToFahrenheit(-300));
             WriteLine();
-            WriteLine(ElementaryOperations(5, 0));
+            WriteLine(ElementaryOperations(3, 8));
             WriteLine();
             WriteLine(IsResultTheSame(2+2, 2*2));
             WriteLine();
@@ -36,11 +36,11 @@ namespace Projekt1
             return $"{celsius}°C is {celsius * 9 / 5 + 32}°F";
         }
 
-        static string ElementaryOperations(int a, int b)
+        static string ElementaryOperations(double a, double b)
         {
             try 
             {
-                int c = a / b; 
+                double c = a / b; 
             }
             catch (System.DivideByZeroException)
             { 

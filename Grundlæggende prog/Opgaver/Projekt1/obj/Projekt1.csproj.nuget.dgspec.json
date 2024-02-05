@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Monday\\Projekt1.csproj": {}
+    "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Projekt1\\Projekt1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Monday\\Projekt1.csproj": {
+    "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Projekt1\\Projekt1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Monday\\Projekt1.csproj",
+        "projectUniqueName": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Projekt1\\Projekt1.csproj",
         "projectName": "Projekt1",
-        "projectPath": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Monday\\Projekt1.csproj",
+        "projectPath": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Projekt1\\Projekt1.csproj",
         "packagesPath": "C:\\Users\\HFGF\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Monday\\obj\\",
+        "outputPath": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Projekt1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
