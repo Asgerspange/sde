@@ -10,7 +10,7 @@ namespace Conditional_Statements
             WriteLine();
             WriteLine(DivisbleBy2Or3(2, 90));
             WriteLine();
-            WriteLine(CheckIfStringIsUpperCase("HELLO"));
+            WriteLine(CheckIfStringIsUpperCase("ADA"));
             WriteLine();
             WriteLine(CheckIfGreaterThanThirdOne(new int[] { 2, 7, 12 }));
             WriteLine();
@@ -30,11 +30,24 @@ namespace Conditional_Statements
 
         static int DivisbleBy2Or3(int a, int b)
         {
-            return a % 2 == 0 || b % 3 == 0 ? a * b : a + b;
+            return (a % 2 == 0 && b % 3 == 0) || (a % 3 == 0 && b % 2 == 0) ? a * b : a + b;
         }
 
         static bool CheckIfStringIsUpperCase(string str)
         {
+            if (str.Length != 3)
+            {
+                return false;
+            }
+
+            foreach (char c in str)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+
             return str == str.ToUpper();
         }
 
