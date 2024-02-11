@@ -6,23 +6,23 @@ namespace Strings
     {
         static void Main(string[] args)
         {
-            //WriteLine(AddSeparator("Hello", ","));
-            //WriteLine();
-            //WriteLine(IsPalindrome("racecar"));
-            //WriteLine();
-            //WriteLine(LengthOfString("Hello"));
-            //WriteLine();
-            //WriteLine(ReverseString("Hello"));
-            //WriteLine();
-            //WriteLine(CountWords("Hello World"));
-            //WriteLine();
-            //WriteLine(RevertWords("Hello World"));
-            //WriteLine();
-            WriteLine(CountOccurrences("Hello World", "Hello"));
-            //WriteLine();
-            //WriteLine(SortCharactersDescending("Hello World"));
-            //WriteLine();
-            //WriteLine(CompressString("Hello World"));
+            WriteLine(AddSeparator("Hello", ","));
+            WriteLine();
+            WriteLine(IsPalindrome("racecar"));
+            WriteLine();
+            WriteLine(LengthOfString("Hello"));
+            WriteLine();
+            WriteLine(ReverseString("Hello"));
+            WriteLine();
+            WriteLine(CountWords("Hello World"));
+            WriteLine();
+            WriteLine(RevertWords("Hello World"));
+            WriteLine();
+            WriteLine(CountOccurrences("Hello World Hello Hello How Are You", "Hello"));
+            WriteLine();
+            WriteLine(SortCharactersDescending("Hello World"));
+            WriteLine();
+            WriteLine(CompressString("Hello World"));
         }
 
         static string AddSeparator(string input, string separator)
