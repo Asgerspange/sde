@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Regnespil\\Regnespil.csproj": {}
+    "E:\\Desktop\\test\\sde\\Grundlæggende prog\\Opgaver\\Regnespil\\Regnespil.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Regnespil\\Regnespil.csproj": {
+    "E:\\Desktop\\test\\sde\\Grundlæggende prog\\Opgaver\\Regnespil\\Regnespil.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Regnespil\\Regnespil.csproj",
+        "projectUniqueName": "E:\\Desktop\\test\\sde\\Grundlæggende prog\\Opgaver\\Regnespil\\Regnespil.csproj",
         "projectName": "Regnespil",
-        "projectPath": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Regnespil\\Regnespil.csproj",
-        "packagesPath": "C:\\Users\\HFGF\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HFGF\\Desktop\\skole\\Grundlæggende prog\\Opgaver\\Regnespil\\obj\\",
+        "projectPath": "E:\\Desktop\\test\\sde\\Grundlæggende prog\\Opgaver\\Regnespil\\Regnespil.csproj",
+        "packagesPath": "C:\\Users\\asger\\.nuget\\packages\\",
+        "outputPath": "E:\\Desktop\\test\\sde\\Grundlæggende prog\\Opgaver\\Regnespil\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HFGF\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\asger\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

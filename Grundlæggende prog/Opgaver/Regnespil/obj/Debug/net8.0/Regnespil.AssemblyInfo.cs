@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Regnespil")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f41736d4d0e396cdf25f8e292ce492837af535f3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3487a0f90057ba753ec41346d267464882d0f72f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Regnespil")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Regnespil")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
